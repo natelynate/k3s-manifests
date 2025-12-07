@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loaderio-token
+data:
+  loaderio-fca2d38d8cd025f8d0003d3701ca7d3a.txt: |
+     loaderio-fca2d38d8cd025f8d0003d3701ca7d3a
