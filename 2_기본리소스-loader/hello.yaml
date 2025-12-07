@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: hello
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: loaderio-token
+          mountPath: /usr/share/nginx/html/loaderio-fca2d38d8cd025f8d0003d3701ca7d3a.txt
+          subPath: loaderio-fca2d38d8cd025f8d0003d3701ca7d3a.txt
+          readOnly: true
+      volumes:
+      - name: loaderio-token
+        configMap:
+          name: loaderio-token
